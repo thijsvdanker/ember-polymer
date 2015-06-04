@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('poly-toolbar');
+  this.route('paper-toolbar');
 });
 
 export default Router;

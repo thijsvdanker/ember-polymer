@@ -1,4 +1,7 @@
-<paper-toolbar>
-    <paper-icon-button id="toolbar_icon" src="https://placehold.it/32/000000/000000" on-tap="drawerToggle"></paper-icon-button>
-    <span>AppName</span>
-</paper-toolbar>
+{{outlet}}
+
+<h1>Ember polymer test</h1>
+<ul>
+    <li>{{#link-to 'paper-toolbar'}}paper-toolbar (not working){{/link-to}}</li>
+    <li>{{#link-to 'poly-toolbar'}}poly-toolbar (working){{/link-to}}</li>
+</ul>
