@@ -1,6 +1,9 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var pickFiles   = require('broccoli-static-compiler'); 
+var mergeTrees  = require('broccoli-merge-trees');
+var vulcanize = require('broccoli-vulcanize');
 
 var app = new EmberApp();
 
@@ -17,4 +20,30 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = app.toTree();
+// module.exports = app.toTree();
+
+var inputTree = 'app';
+var options = {
+  input: 'elements.html',
+  output: 'assets/vulcanized.html',
+  excludes: [/^data:/, /^http[s]?:/, /^\//],
+  abspath: '',
+  stripExcludes: false,
+  stripComments: false,
+  inlineScripts: true,
+  inlineCss: true,
+  implicitStrip: false
+};
+
+var polymer = pickFiles('bower_components/', {  
+  srcDir: '',
+  files: [
+    'webcomponentsjs/webcomponents-lite.js',
+    // 'polymer/polymer.html'
+//  'polymer/polymer.js'
+  ],
+  destDir: '/assets'
+});
+ 
+var polymerVulcanize = vulcanize(inputTree, options);
+module.exports = mergeTrees([polymerVulcanize, polymer, app.toTree()]);

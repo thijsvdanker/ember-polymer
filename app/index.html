@@ -8,13 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for 'head'}}
-
+    <script src="assets/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="assets/vulcanized.html">
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/ember-dash.css">
 
     {{content-for 'head-footer'}}
   </head>
-  <body>
+  <body class="fullbleed layout vertical">
     {{content-for 'body'}}
 
     <script src="assets/vendor.js"></script>

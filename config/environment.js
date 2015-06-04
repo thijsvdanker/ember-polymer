@@ -16,7 +16,17 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    contentSecurityPolicy: {
+          'default-src': "'none'",
+          'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+          'font-src': "'self'  http://fonts.gstatic.com",
+          'connect-src': "'self' 127.0.0.1",
+          'img-src': "'self' https://avatars.githubusercontent.com",
+          'report-uri':"'localhost'",
+          'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+          'frame-src': "'none'"
+        }
   };
 
   if (environment === 'development') {
