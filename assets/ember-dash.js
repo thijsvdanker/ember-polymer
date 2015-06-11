@@ -578,7 +578,7 @@ catch(err) {
 if (runningTests) {
   require("ember-dash/tests/test-helper");
 } else {
-  require("ember-dash/app")["default"].create({"name":"ember-dash","version":"0.0.0.2c5f202d"});
+  require("ember-dash/app")["default"].create({"name":"ember-dash","version":"0.0.0.ca503ac5"});
 }
 
 /* jshint ignore:end */
